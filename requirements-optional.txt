@@ -1,0 +1,12 @@
+# Encryption support (X25519 key exchange + ChaCha20-Poly1305)
+cryptography>=42.0
+
+# Terminal UI (rich neon dashboard)
+textual>=0.60
+rich>=13.7
+
+# YAML config-file support
+pyyaml>=6.0
+
+# TUN/VPN mode packet capture (Linux/macOS root only)
+scapy>=2.5

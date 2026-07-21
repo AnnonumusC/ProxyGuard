@@ -1,0 +1,57 @@
+# ProxyGuard Ultimate — Example YAML Configuration
+# Copy this file to config.yaml and edit as needed.
+# Pass to the CLI with: proxy-guard run --config config.yaml
+
+# ── Listener ────────────────────────────────────────────────────────────────
+host: "127.0.0.1"      # Bind address for the local proxy server
+port: 8080             # Port clients connect to
+
+# ── Rotation ────────────────────────────────────────────────────────────────
+strategy: "round_robin"   # round_robin | random | least_used | best_score | sticky
+rotate_every: 10          # Rotate after this many requests (per client)
+# rotate_seconds: 60      # Uncomment to also rotate on a time interval
+
+# ── Health & Reliability ────────────────────────────────────────────────────
+max_failures: 3           # Drop a proxy after this many consecutive failures
+auto_clean_interval: 120  # Seconds between background health re-checks
+check_timeout: 10.0       # Per-proxy HTTP check timeout (seconds)
+max_retries: 3            # Retry attempts per client request
+threads: 20               # Concurrent proxy health-check workers
+
+# ── Anonymity ───────────────────────────────────────────────────────────────
+min_anonymity: "anonymous"  # transparent | anonymous | elite
+
+# ── Geo Filtering ───────────────────────────────────────────────────────────
+geo: false                # Fetch exit country during health check
+allowed_countries: []     # e.g. ["US", "DE", "NL"] — empty = allow all
+
+# ── Proxy Discovery ─────────────────────────────────────────────────────────
+discover: false           # Auto-fetch from built-in public proxy lists
+
+# ── Mesh / Onion Routing ────────────────────────────────────────────────────
+mesh_hops: 0              # Number of pre-hop proxies (0 = disabled)
+mesh_rotate_seconds: 300  # Rebuild mesh circuit every N seconds
+
+# ── Security ────────────────────────────────────────────────────────────────
+# local_auth: "user:password"   # Require auth to use the local proxy
+allow_direct_fallback: false    # DANGER: bypass proxy if pool is empty
+
+# ── Rate Limiting ────────────────────────────────────────────────────────────
+# rate_limit: "100:60"  # format: MAX_REQUESTS:WINDOW_SECONDS
+
+# ── Control API ─────────────────────────────────────────────────────────────
+api_port: 0             # 0 = disabled; set e.g. 9090 to enable REST API
+api_host: "127.0.0.1"
+
+# ── State Persistence ───────────────────────────────────────────────────────
+resume: false           # Reload prior proxy stats on start
+# state_file: "proxy_rotator.state.json"
+
+# ── TUN / System-wide VPN ───────────────────────────────────────────────────
+tun_mode: false
+tun_network: "10.10.0.0/24"
+tun_dns_doh: true
+
+# ── UI ──────────────────────────────────────────────────────────────────────
+headless: false         # true = server-only, no TUI
+skip_initial_check: false

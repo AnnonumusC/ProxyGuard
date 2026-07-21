@@ -1,0 +1,79 @@
+# ── Replit workspace files (never commit these) ─────────────────────────────
+artifacts/
+lib/
+scripts/
+attached_assets/
+.replit
+.replitignore
+replit.md
+.local/
+.agents/
+.cache/
+.upm/
+.config/
+pnpm-workspace.yaml
+pnpm-lock.yaml
+package.json
+tsconfig.json
+tsconfig.base.json
+.npmrc
+*.tsbuildinfo
+
+# ── Python ───────────────────────────────────────────────────────────────────
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.installed.cfg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Runtime state / persistence
+*.state.json
+proxy_rotator.state.json
+proxy_rotator_active.json
+~/.proxy_rotator_active.json
+.proxy_rotator_active.json
+request_log*.json
+export_stats*.json
+
+# Logs
+*.log
+logs/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Coverage / testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+# Distribution
+*.tar.gz
+*.whl
+
+# Config files with secrets (keep examples, ignore real ones)
+config.json
+config.yaml
+config.yml
+proxies.txt
+proxy_list.txt
+*.proxies
